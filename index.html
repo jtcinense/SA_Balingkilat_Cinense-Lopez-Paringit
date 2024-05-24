@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Shopping</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <!-- Online Fonts -->
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EFBCBB;
+    overflow-x: hidden;
+}
+
+header{
+    color: #F4F1EF;
+}
+header h1 {
+    font-size: 400%;
+    color:#C76262;
+    font-family: "Alice", serif;
+}
+
+.all-center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+
+#bow {
+    width: 100px;
+}
+
+.carousel-inner{
+    border-radius: 1.5rem;
+    width: 99%;
+
+}
+nav {
+  background-color: #F6E3E3
+}
+.nav-link {
+    color:#C76262;
+    font-size: 20px;
+    margin-left: 50px;
+    font-family: "Alice", serif;
+}
+
+.imgitem{
+  border-radius: 10px;
+  margin-left: 25px;
+  border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+height: 250px;
+}
+
+.priceitem{
+font-size: 20px;
+text-align: center;
+background-color: #C76262;
+width:250px;
+margin-left: 25px;
+margin-top: -5px;
+padding-top: 15px;
+height: 210px;
+border-radius: 10px;
+color:#F6E3E3;
+font-family: "Alice", serif;
+
+}
+.btnitem{
+color: #C76262;
+background-color: #F6E3E3;
+margin-left: 75px;
+margin-top: -145px;
+font-size: 15px;
+width: 150px;
+}
+#items{
+
+}
+#cartandform{
+  background-color: #F6E3E3;
+  padding: 30px;
+  border-radius: 1.5rem;
+  width: 100%;
+}
+.list-group-item{
+  width: 390px;
+  background-color: #E6A0A0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: "Alice", serif;
+  color: #F6E3E3;
+  text-align: center;
+}
+#ulcart{
+  width: 600px;
+
+}
+#form{
+  background-color: #E6A0A0;
+  border-radius: 20px;
+  width: 100%;
+  padding: 15px;
+  height:400px;
+}
+.mb-3{
+  width: 700px;
+  margin-right: 50px;
+}
+#firstques{
+  width: 700px;
+}
+
+h2{
+  color:#C76262;
+  font-family: "Alice", serif;
+}
+#modal{
+  margin-right: 20px;
+}
+
+.btn{
+  background-color: #F6E3E3;
+  color:#C76262;
+  align-items: center;
+  font-family: "Alice", serif;
+}
+
+label{
+color:#F6E3E3;
+font-family: "Alice", serif;
+}
+
+#tot{
+color:#F6E3E3;
+font-family: "Alice", serif;
+font-size: 25px;
+}
+
+.order{ 
+ width: 790px;
+ 
+}
+
+
+</style>
+</head>
+<body class="container-fluid">
+    <header class="d-flex align-items-center justify-content-between p-4 px-5">
+        <div class="d-flex align-items-center">
+            <img id="bow" src="img/bow.png" alt="">
+            <h1 class="ms-3"><b>The Coquette Shop</b></h1>
+        </div>
+        <div class="d-flex justify-content-end" id="logos">
+          <div id="modal">
+              <img src="img/cart.png" data-bs-toggle="modal" data-bs-target="#exampleModal" alt=".." width="50" height="50">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Shopping Cart</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="col-lg-11  mx-5" id="cartandform">
+                      <div class="d-flex">
+                        <ul id="ulcart" class="list-group p-1">
+                          
+                        </ul>
+                        <form action="http://sirjm.infinityfreeapp.com/checkout.php" method="GET" id="form">
+                          <h2 style="text-align: center;">DELIVERY DETAILS</h2>
+                  
+                          <div class="mb-3 d-flex mx-5" id="firstques">
+                              <input class="form-control mx-1" type="text" id="studName" name="cust_name" placeholder="Name">
+                              <input class="form-control" type="email" id="emailadd" name="cust_email" placeholder="Email Adress">
+                          </div>
+                          <div class="mb-3 d-flex mx-5">
+                            <input class="form-control" type="text" id="address" name="cust_addr" placeholder="Address">
+                        </div>
+                        <div class="mb-3 mx-5">
+                          <p id="tot">Total Payment: </p>
+                        </div>
+                          <div class="mb-3 d-flex mx-5">
+                              <div class="mb-3 mx-5 ">
+                                <label for="selSection1" class="form-label">Payment Option</label> 
+                              <select id="selSection1" name="gradelevel" class="form-select">
+                                  <option value="Grade 7">Cash on Delivery</option>
+                                  <option value="Grade 8">Gcash</option>
+                                  <option value="Grade 9">Paymaya</option>
+                                  <option value="Grade 10">Credit Card</option>
+                                  </select>
+                              </div>
+                                  <div class="mb-3 mx-5">
+                                    <label for="selSection2" class="form-label">Shipping Option</label> 
+                              <select id="selSection2" name="gradelevel" class="form-select">
+                                  <option value="Grade 7">Door to Door delivery</option>
+                                  <option value="Grade 8">Self-Pickup</option>
+                                  </select>
+                                  </div>
+                          </div>
+                          <input type="hidden" name="cust_order" id="order">
+                          <input type="submit" onclick="" class="btn btn-light order mx-1" value="Place Order">
+                      </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="AboutUs-shop.html"><img src="img/about.png" alt="..." width="50" height="50"></a>
+        </div>
+    </header>
+
+    <div class="row" >
+      <div class="col-12 mx-2 section-box center">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/Carousel/1.png" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="img/Carousel/2.png" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="img/Carousel/3.png" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="img/Carousel/4.png" class="d-block w-100" alt="">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    
+    <nav class="navbar navbar-expand-lg my-4">
+        <div class="container-fluid">
+
+
+            <ul class="nav nav-underline">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Top Sales</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Clothing.html">Clothing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Accessories.html">Accessories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Gadgets.html">Gadgets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Appliances.html">Appliances</a>
+              </li>
+
+            </ul>
+
+        </div>
+      </nav>
+  <div class="row" id="items">
+    <div class="col-md-2  mx-3 item" >
+
+    <!-- Gadgets -->
+      
+      <img src="img/Gadgets/1.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink iPhone 13 128GB<br>₱42,990.00</p>
+      <button onclick="addtocart('Iphone 13',42990.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/2.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink iPad mini 256GB <br> ₱42,990.00</p>
+      <button onclick="addtocart('Ipad Mini',42990.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/3.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Rose Glod 13-inch Macbook Air M1 chip <br> ₱45,490.00</p>
+      <button onclick="addtocart('13-inch Macbook Air',45490.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/4.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink SONY Cyber-shot DSC-WX 16.2 MP Digital Camera<br>₱12,599.43</p>
+      <button onclick="addtocart('SONY Cyber-shot Digital Camera',12599.43)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/5.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Samsung Galaxy S22 128GB <br>₱40,787.37</p>
+      <button onclick="addtocart('Samsung Galaxy S22',40787.37)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/6.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Logitech M221 Silent Wireless Mouse <br> ₱605.00</p>
+      <button onclick="addtocart('Logitech Silent Wireless Mouse',605.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/7.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Rose Pink JBL Live 460NC Wireless Noise Cancelling On-Ear Headphones <br>₱ 6,999.00</p>
+      <button onclick="addtocart('JBL Live Headphones',6999.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/8.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Cosmic Pink Beats Studio Buds Bluetooth Noise Cancelling Earbuds <br> ₱9,902.76</p>
+      <button onclick="addtocart('Beats Studio Buds',9902.76)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/9.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink JBL Flip 6 Portable Waterproof Speaker <br> ₱ 6,374.00</p>
+      <button onclick="addtocart('JBL Flip 6 Speaker',6374.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Gadgets/10.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Fujifilm Instax Mini 12 <br>₱ 4,409.00</p>
+      <button onclick="addtocart('Fujifilm Instax Mini 12',4409.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <!-- Clothing -->
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/1.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">White Cat Design Top <br> ₱499.00</p>
+      <button onclick="addtocart('White Cat Design Top',449.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/2.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">H&M Linen-blend Flourenced Top <br> ₱1,047.79</p>
+      <button onclick="addtocart('Fujifilm Instax Mini 12',1047.79 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/3.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Converse Unisex Chuck Taylor <br> ₱5,290.00</p>
+      <button onclick="addtocart('Pink Converse Unisex Chuck Taylor',5290.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/4.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">H&M Women’s Chunky Leather Loafers <br> ₱4,490.00 </p>
+      <button onclick="addtocart('H&M Women’s Chunky Leather Loafers',4409.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/5.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">FindThy Women's Y2K Pullover Sweater <br> ₱4,500.00</p>
+      <button onclick="addtocart('FindThy Y2K Pullover Sweater',4500.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/6.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Coquette Pajamas <br> ₱750.00</p>
+      <button onclick="addtocart('Coquette Pajamas ',750.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/7.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Balletcore Bow Coquette White Pleated Mini Skirt <br> ₱722.00 </p>
+      <button onclick="addtocart('Balletcore Coquette White Mini Skirt',722.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/8.jpeg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">Y2K Coquette Vintage Denim Skirt <br> ₱1,629.25 </p>
+      <button onclick="addtocart('Fujifilm Instax Mini 12',1629.25)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Clothes/9.jpg" alt="..." height="250" width="250" class="imgitem">
+      <p class="priceitem">White LUXMAX Mary Jane Chunky Laced High Heeled Shoes <br> ₱1,977.79</p>
+      <button onclick="addtocart('White LUXMAX Mary Jane',1977.79)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <!-- Accessories -->
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/1.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Starry Earrings <br>  ₱25.00 </p>
+      <button onclick="addtocart('Starry Earrings',25.0)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/1.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Starry Earrings <br>  ₱25.00 </p>
+      <button onclick="addtocart('Starry Earrings',25.0)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/3.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Crochet tote bag <br>  ₱450.00</p>
+      <button onclick="addtocart('Crochet tote bag ',450.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/4.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Set 1 Hair Clips <br>  ₱60.00</p>
+      <button onclick="addtocart('Set 1 Hair Clips ',60.0)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/5.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Set 2 Hair Clips <br>  ₱60.00</p>
+      <button onclick="addtocart('Set 2 Hair Clips',60.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/6.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink softgirl claw clip <br> ₱15.00 </p>
+      <button onclick="addtocart('Pink softgirl claw clip',15.00)" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Accessories/7.png" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Bowknot Clutch Purse Handbag <br> ₱637.74 </p>
+      <button onclick="addtocart('Pink Bowknot Clutch Purse Handbag',637.74 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+     <!-- Appliances -->
+
+     <div class="col-md-2 mx-3 item" >
+      <img src="img/Appliances/1.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Redmono Toaster <br> ₱1,000.00 </p>
+      <button onclick="addtocart('Redmono Toaster',1000.00 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Appliances/2.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Kitchen Blender <br>₱2,500.00 </p>
+      <button onclick="addtocart('Pink Kitchen Blender',2500.00 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Appliances/3.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Canon PIXMA Wireless All-in-One Inkjet Printer <br> ₱16,124.00  </p>
+      <button onclick="addtocart('Canon PIXMA Wireless All-in-One Inkjet Printer',16124.00 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Appliances/4.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Britania FB110R Iron <br>₱ 2500.00</p>
+      <button onclick="addtocart('Britania FB110R Iron',2500.00 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+    <div class="col-md-2 mx-3 item" >
+      <img src="img/Appliances/5.jpeg" alt="" height="250" width="250" class="imgitem">
+      <p class="priceitem">Pink Dash Mini 16 Ounce Rice Cooker  <br> ₱3,520.34</p>
+      <button onclick="addtocart('Pink Dash Mini 16 Ounce Rice Cooker',3520.34 )" class="btn btn-light btnitem">ADD TO CART</button>
+    </div>
+
+  </div>
+
+<div class="row" >
+  <div class="col-lg-1">
+
+  </div>
+
+</div>
+<script>
+  var mycart = [];
+  function addtocart(nameprod,priceprod) {
+            var name = nameprod;
+            var price = priceprod;
+            var aprod = {
+                prod_name: name,
+                prod_price: price
+            }
+            mycart.push(aprod);
+            displaycart();
+            savecart();
+            document.getElementById('order').value = JSON.stringify(mycart);
+            gettotprice();
+        }
+        function gettotprice(){
+          var totprice = 0;
+            for(var i=0; i<mycart.length; i++){
+              totprice = totprice + mycart[i].prod_price;
+            }
+            document.getElementById('tot').innerHTML = "Total: ₱" + totprice;
+
+        }
+        function displaycart() {
+            document.getElementById('ulcart').innerHTML = '';
+            for(var i=0; i<mycart.length; i++) {
+                document.getElementById('ulcart').innerHTML += '<li class="list-group-item"><h5 class="mb-4" onclick="">Name: ' + mycart[i].prod_name + '<br>Price: ₱' + mycart[i].prod_price + '</h5> <button class="btn btn-light" onclick="deleteCart(' +i+ ')">Remove from cart</button></li>';
+            }
+        }
+        function savecart() {
+            localStorage.setItem("mycart",JSON.stringify(mycart));
+        }
+        function getcart() {
+            if(localStorage.getItem("mycart") != null) {
+                var myfriends_str = localStorage.getItem("mycart");
+                mycart = JSON.parse(myfriends_str);
+            }
+            document.getElementById('order').value = JSON.stringify(mycart);
+            displaycart();
+        }
+        getcart()
+        function deleteCart(prodnum) {
+            const index = prodnum;
+    if (index > -1) {
+        mycart.splice(index, 1);
+        localStorage.setItem("mycart",JSON.stringify(mycart));
+        document.getElementById('order').value = JSON.stringify(mycart);
+        displaycart();
+        gettotprice();
+    }}
+    gettotprice();
+</script>
+</body>
+</html>
